@@ -1,0 +1,13 @@
+default: &default
+  adapter: mysql
+  host: localhost
+  username: ????
+  password: ????
+
+development:
+  <<: *default
+  database: url_shortener_challenge_dev
+
+production:
+  <<: *default
+  database: url_shortener_challenge_prod
