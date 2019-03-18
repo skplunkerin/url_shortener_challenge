@@ -1,0 +1,23 @@
+<% if @url.errors %>
+  <div class="forms__errors">
+    <p class="forms__error"><%= @url.errors.full_messages.to_sentence %></p>
+  </div>
+<% end %>
+
+<div class="forms__url">
+  <%= f.label :full_url %>
+  <%= f.text_field :full_url %>
+</div>
+
+<div class="forms__url forms__url--short">
+  <%= f.label :short_url %>
+  <%= f.text_field :short_url %>
+</div>
+
+<div class="forms__submit">
+  <%= f.submit params[:action] == 'new' ? "Create" : "Update" %>
+  | <%= link_to "Back", redirects_path %> 
+  <% if params[:action] == 'edit' %>
+    | <%= link_to 'Delete', redirect_path(@url), method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
+</div>

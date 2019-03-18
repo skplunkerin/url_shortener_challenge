@@ -1,0 +1,9 @@
+<h1>Create New Redirect</h1>
+
+<div class="container">
+  <%= form_for @url do |f| %>
+    <div class="forms">
+      <%= render partial: "redirects/partials/form", locals: {f:f} %>
+    </div>
+  <% end %>
+</div>
