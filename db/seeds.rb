@@ -25,6 +25,9 @@ p d
   })
   if !r.errors.empty?
     puts r.errors.full_messages.to_sentence
+  else
+    p r
+    # Create a redirect history?
+    # rh = RedirectHistory.create(redirect_id: r.id, notes: "db:seeds test")
   end
-  p r
 end

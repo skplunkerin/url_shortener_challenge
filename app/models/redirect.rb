@@ -1,6 +1,7 @@
 class Redirect < ApplicationRecord
   # Relationships
   belongs_to    :domain
+  has_many      :redirect_histories
 
   # Validations
   validates_presence_of     :full_url,
@@ -16,6 +17,13 @@ class Redirect < ApplicationRecord
   # Generate full short url used for redirecting
   def get_shortened_full_url
     return "#{self.domain.base_domain}/s/#{self.short_url}"
+  end
+
+  def count(**args)
+    rh = self.redirect_histories.all
+    if args[:date_after]
+    end
+    return rh.count
   end
 
   private
